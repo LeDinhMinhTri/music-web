@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoniq</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./LikeHim.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Ewert&family=Grenze+Gotisch:wght@100..900&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg">
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <i class="bx bxl-deezer"></i>
+                    <span>Harmoniq</span>
+                </div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+            
+            <ul>
+                
+                <li>
+                    <a href="../../home/home.html">
+                        <i class='bx bxs-home-heart'></i>
+                        <span class="nav-item" >Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../track/track.html">
+                        <i class='bx bxs-music'></i>
+                        <span class="nav-item">Tracks</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../list/list.html">
+                        <i class='bx bxs-playlist'></i>
+                        <span class="nav-item">List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../signup/signup.html">
+                        <i class='bx bx-user-plus'></i>
+                        <span class="nav-item">Join</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../login/login.html">
+                        <i class='bx bxs-user-check'></i>
+                        <span class="nav-item">LogIn</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="container">
+                <header>
+                    <div class="search">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Do you want to search for another song?">
+                    </div>
+                </header>
+                <div class="content">
+                    <div class="header">
+                        <img src="https://i.pinimg.com/736x/48/e1/3c/48e13c48d41bd0461502639ea3dcfc1e.jpg" alt="">
+                        <h1>Like him</h1>
+                    </div>
+                    <div class="info">
+                        <div class="action">
+                            <i id="playbtn" onclick="playPause()" class='bx bx-pause'></i>
+                            <input type="range" value="0" id="progress">
+                            <i id="plus" class='bx bx-plus-circle'></i>
+                            <audio id="song">
+                                <source src="../../mp3/Like Him.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <div class="singer1">
+                            <img src="https://i.pinimg.com/736x/19/0f/d7/190fd7186b6e37861ce6740264bdc00b.jpg" alt="">
+                            <h4>Tyler, the Creator</h4>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../../main.js"></script>
+    <script src="./LikeHim.js"></script>
+</body>
+</html>

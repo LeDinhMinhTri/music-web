@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.card{
+    width: 500px;
+    border-radius: 10px;
+    align-items:center;
+    margin-top: 50px;
+    box-shadow: 0 5px 20px rgb(186, 186, 186);
+    margin-left: 400px;
+}
+.btn{
+    width: 400px;
+}
+.forget-btn{
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.input{
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+    font-family: "Mountains of Christmas", serif;
+}
+#btn1{
+    font-weight: bold;
+    height: 50px;
+    font-size: 20px;
+    border: 0px;
+    margin-bottom: 10px;
+    background-color: rgb(141, 11, 65);
+    font-family: "Mountains of Christmas", serif;
+}
+#phone{
+    margin-top: 30px;
+}
+#confirmPassword{
+    margin-bottom: 30px;
+}
+#alracc{
+    text-decoration: none;
+    margin: 30px;
+    color: white;
+    padding: 10px 50px;
+    border: 1px solid rgb(75, 89, 69);
+    background-color: rgb(75, 89, 69);
+    border-radius: 5px;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: bold;
+}
+.line{
+    width: 450px;
+    border: 1px solid rgb(225, 223, 223);
+    margin-top: 20px;
+}
+#title{
+    margin-top: 30px;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: bold;
+}
+
+.return{
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #5e8abd;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: bold;
+}

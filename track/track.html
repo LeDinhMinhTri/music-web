@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoniq</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./track.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Ewert&family=Grenze+Gotisch:wght@100..900&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class="bx bxl-deezer"></i>
+                <span>Harmoniq</span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        
+        <ul>
+            
+            <li>
+                <a href="../home/home.html">
+                    <i class='bx bxs-home-heart' ></i>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bxs-music' style="color: #021526;"></i>
+                    <span class="nav-item"  style="color: #021526;">Tracks</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../list/list.html">
+                    <i class='bx bxs-playlist' ></i>
+                    <span class="nav-item">List</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../signup/signup.html">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="nav-item">Join</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../login/login.html">
+                    <i class='bx bxs-user-check'></i>
+                    <span class="nav-item">LogIn</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <header>
+                <div class="search">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="What jingles do you consider today?">
+                </div>
+            </header>
+
+            <div class="music-tracks">
+                <h2>Most listened tracks in 2024</h2>
+                <div class="list">
+                    <div class="grid-container">
+
+                        <div class="item" id="song1">
+                            <img src="https://i.pinimg.com/736x/7d/a3/ed/7da3ed3054dbc5397c5489680ede3fb3.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/Apt/Apt.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>APT.</h4>
+                            <p>Bruno Mars & Rosé</p>
+                        </div>
+                        
+                        <div class="item" id="song2">
+                            <img src="https://i.pinimg.com/736x/80/10/3d/80103dcd20fb23f94c46b9433e5bfd26.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/DieWithASmile/DieWithASmile.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Die With A Smile</h4>
+                            <p>Bruno Mars & Lady Gaga</p>
+                        </div>
+                        
+                        <div class="item" id="song3">
+                            <img src="https://i.pinimg.com/736x/48/e1/3c/48e13c48d41bd0461502639ea3dcfc1e.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/Like him/LikeHim.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Like him</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        <div class="item" id="song4">
+                            <img src="https://i.pinimg.com/736x/6f/a0/b1/6fa0b1ceffc7ef78df318e2f720a4331.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/Espresso/Espresso.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Espresso</h4>
+                            <p>Sabrina Carpenter</p>
+                        </div>
+                        
+                        <div class="item" id="song5">
+                            <img src="https://i.pinimg.com/736x/35/6e/44/356e44f10315459a61c8cbba2ef6ac1d.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/WeCan'tBeFriend/WeCantBeFriend.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>We can't be friends</h4>
+                            <p>Ariana Grande</p>
+                        </div>
+                        
+                        <div class="item" id="song6">
+                            <img src="https://i.pinimg.com/736x/2c/ec/0f/2cec0f076ed87ae61714c4682e75f27b.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/MillionDollarBaby/Million.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>MILLION DOLLAR BABY</h4>
+                            <p>Tommy Richman</p>
+                        </div>
+                        
+                        <div class="item" id="song7">
+                            <img src="https://i.pinimg.com/736x/e0/50/ea/e050eac01c3d4f5f057d0189f633d4c4.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/NotLikeUs/NotLikeUs.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Not Like Us</h4>
+                            <p>Kendrick Lamar</p>
+                        </div>
+                        
+                        <div class="item" id="song8">
+                            <img src="https://i.pinimg.com/736x/f2/1d/5d/f21d5d429358378e1e98d91dff41acfe.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/Saturn/Saturn.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Saturn</h4>
+                            <p>SZA</p>
+                        </div>
+                        
+                        <div class="item" id="song9">
+                            <img src="https://i.pinimg.com/736x/2f/29/54/2f2954a2bb2666a8b7d2ce7c64a3f187.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/LikeThat/LikeThat.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>Like That</h4>
+                            <p>Future</p>
+                        </div>
+                        
+                        <div class="item" id="song10">
+                            <img src="https://i.pinimg.com/736x/72/af/6c/72af6c6f75f64e471dd387108fe29068.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/redrum/redrum.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>redrum</h4>
+                            <p>21 Savage</p>
+                        </div>
+                        
+                        <div class="item" id="song11">
+                            <img src="https://i.pinimg.com/736x/b6/d2/16/b6d2161236ce63d467a2c0078331def4.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/ThatSoTrue/True.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>
+                            </div>
+                            <h4>That's So True</h4>
+                            <p>Gracie Abrams</p>
+                        </div>
+                        
+                        <div class="item" id="song12">
+                            <img src="https://i.pinimg.com/736x/6f/8b/cf/6f8bcfdd3c4e97de6ee01822fdf2d353.jpg" alt="">
+                            <div class="play">
+                                <a href="../songDetails/Timeless/Timeless.html"><span class="playBtn"><i class='bx bx-play'></i></span></a>   
+                            </div>
+                            <h4>Timeless</h4>
+                            <p>The Weeknd</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="music-albums">
+                <h2>Brand-new Albums</h2>
+                <div class="list">
+                    <div class="grid-container">
+
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/c0/ca/2e/c0ca2e0b08cdf8b0be040fa6a6f8a29c.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Chromakopia</h4>
+                            <p>Tyler, the Creator</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="music-artists">
+                <h2>Favourite artists of the year</h2>
+                <div class="list">
+                    <div class="grid-container">
+
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="https://i.pinimg.com/736x/fc/b5/df/fcb5dfb64f1bbe69f68c157e69d5061e.jpg" alt="">
+                            <div class="play">
+                                <span class="playBtn"><i class='bx bx-play'></i></span>
+                            </div>
+                            <h4>Travis Scott</h4>
+                            <p>Jacques Bermon Webster II</p>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>
