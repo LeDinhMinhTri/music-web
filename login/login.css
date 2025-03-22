@@ -2,21 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    min-height: 100vh;
+    background: url("https://i.pinimg.com/736x/b0/4b/8f/b04b8f1a36fe0aef6328190fbed2938b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .container{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .card{
     width: 500px;
     border-radius: 10px;
-    align-items:center;
-    margin-top: 50px;
-    box-shadow: 0 5px 20px rgb(186, 186, 186);
-    font-family: "Mountains of Christmas", serif;
+    align-items: center;
+    box-shadow: 0 5px 20px rgb(255, 255, 255);
     font-weight: bold;
-    background-color: #FFE2E2;
 }
 .btn{
     width: 400px;
@@ -46,7 +52,6 @@
     font-weight: bold;
     font-size: 20px;
     background-color: rgb(75, 89, 69);
-    font-family: "Mountains of Christmas", serif;
     border: 0px;
 }
 #btn1{
@@ -55,14 +60,12 @@
     font-size: 20px;
     border: 0px;
     background-color: rgb(141, 11, 65);
-    font-family: "Mountains of Christmas", serif;
 }
 #email{
     margin-top: 50px;
 }
 #title{
     margin-top: 30px;
-    font-family: "Mountains of Christmas", serif;
     font-weight: bold;
 }
 .createAcc{

@@ -1,16 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body{
+    min-height: 100vh;
+    background: url("https://i.pinimg.com/736x/b0/4b/8f/b04b8f1a36fe0aef6328190fbed2938b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container{
     display: flex;
-    align-items: center;
     justify-content: center;
-    
+    align-items: center;
+    height: 100vh;
 }
 .card{
     width: 500px;
     border-radius: 10px;
-    align-items:center;
-    margin-top: 50px;
-    box-shadow: 0 5px 20px rgb(186, 186, 186);
-    margin-left: 400px;
+    align-items: center;
+    color: white;
+    box-shadow: 0 5px 20px rgb(255, 255, 255);
 }
 .btn{
     width: 400px;
@@ -26,7 +38,6 @@ body{
     border: 1px solid gray;
     padding: 10px;
     margin: 10px;
-    font-family: "Mountains of Christmas", serif;
 }
 #btn1{
     font-weight: bold;
@@ -35,7 +46,6 @@ body{
     border: 0px;
     margin-bottom: 10px;
     background-color: rgb(141, 11, 65);
-    font-family: "Mountains of Christmas", serif;
 }
 #phone{
     margin-top: 30px;
@@ -51,7 +61,6 @@ body{
     border: 1px solid rgb(75, 89, 69);
     background-color: rgb(75, 89, 69);
     border-radius: 5px;
-    font-family: "Mountains of Christmas", serif;
     font-weight: bold;
 }
 .line{
@@ -61,7 +70,6 @@ body{
 }
 #title{
     margin-top: 30px;
-    font-family: "Mountains of Christmas", serif;
     font-weight: bold;
 }
 
@@ -69,6 +77,5 @@ body{
     margin-bottom: 20px;
     text-decoration: none;
     color: #5e8abd;
-    font-family: "Mountains of Christmas", serif;
     font-weight: bold;
 }

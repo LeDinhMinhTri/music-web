@@ -15,8 +15,8 @@
     transition: all 0.5s ease;
 }
 .sidebar.active ~ .main-content{
-    left: 220px;
-    width: calc(100% - 220px);
+    left: 180px;
+    width: calc(100% - 180px);
 }
 .sidebar.active{
     width: 220px;
@@ -24,7 +24,7 @@
 .sidebar #btn{
     position: absolute;
     color: rgb(255, 253, 236);
-    top: .4rem;
+    top: .5rem;
     left: 50%;
     font-size: 1.2rem;
     line-height: 50px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 .sidebar.active #btn{
-    left: 90%;
+    left: 70%;
 
 }
 .sidebar .top .logo{
