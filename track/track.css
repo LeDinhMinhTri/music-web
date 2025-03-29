@@ -208,3 +208,12 @@
 .add-product ::placeholder{
     color: rgba(0, 0, 0, 0.634);
 }
+.menuTitle{
+    z-index: 1;
+    opacity: 0.3;
+    font-size: 300px;
+    line-height: 280px;
+    color: rgb(51, 66, 51);
+    position: absolute;
+    pointer-events: none;
+}
