@@ -69,11 +69,20 @@
             </header>
 
             <div class="grid-container">
-                <div id="item1"><img id="img" src="" alt=""></div>
+                <div id="item1"><img src="" alt=""></div>
                 <div id="item2"></div>
-                <div id="item3"> <button id="minus"><i class='bx bx-minus'></i></button> <div id="number">0</div> <i id="coffee" class='bx bxs-coffee-alt'></i> <button id="plus"><i class='bx bx-plus' ></i></button></div>
-                <div id="item4"></div>
-                <div id="item5"><button id="btn">ADD TO CART</button></div>
+                <div id="item3">
+                    <div class="info">
+                        <div class="action">
+                            <i id="playbtn" onclick="playPause()" class='bx bx-pause'></i>
+                            <input type="range" value="0" id="progress">
+                            <i id="plus" class='bx bx-plus-circle'></i>
+                            <audio id="song">
+                                <source src="../mp3/The Weeknd, Playboi Carti - Timeless (Official Audio).mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
             </div>
             
 
