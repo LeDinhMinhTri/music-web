@@ -38,3 +38,4 @@ progress.onchange = function(){
     playbtn.classList.add('bx-pause');
     playbtn.classList.remove('bx-play');
 }
+

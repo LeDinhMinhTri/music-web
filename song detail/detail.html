@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmoniq</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./track.css">
+    <link rel="stylesheet" href="./detail.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Ewert&family=Grenze+Gotisch:wght@100..900&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
@@ -37,13 +37,6 @@
             </li>
 
             <li>
-                <a>
-                    <i class='bx bxs-plus-circle' id="add" onclick="openPopup()"></i>
-                </a>
-                
-            </li>
-
-            <li>
                 <a href="../list/list.html">
                     <i class='bx bxs-playlist' ></i>
                     <span class="nav-item">List</span>
@@ -71,32 +64,22 @@
             <header>
                 <div class="search">
                     <i class='bx bx-search'></i>
-                    <input type="text" placeholder="What jingles do you consider today?">
+                    <input type="text" placeholder="What other jingles do you want to hear?">
                 </div>
             </header>
 
-            <div class="add-song">
-                <div class="popUp" id="popup">
-                    <div class="add-product">
-                        <h2>ADD SONG:</h2>
-                        <input type="text" id="name" placeholder="Song name">
-                        <input type="text" id="img" placeholder="Song image">
-                        <input type="file" id="song" placeholder="Song file">
-                        <button id="save-song" onclick="closePopup()">Save song</button>
-                    </div>
-                </div>
+            <div class="grid-container">
+                <div id="item1"><img id="img" src="" alt=""></div>
+                <div id="item2"></div>
+                <div id="item3"> <button id="minus"><i class='bx bx-minus'></i></button> <div id="number">0</div> <i id="coffee" class='bx bxs-coffee-alt'></i> <button id="plus"><i class='bx bx-plus' ></i></button></div>
+                <div id="item4"></div>
+                <div id="item5"><button id="btn">ADD TO CART</button></div>
             </div>
-
-            <div class="music-tracks">
-                <div id="song-list"></div>
-            </div>
-
             
 
         </div>
     </div>
+    <script src="./detail.js"></script>
     <script src="../main.js"></script>
-    <script src="./track.js"></script>
-    <script type="module" src="../firebase-config.js"></script>
 </body>
 </html>
