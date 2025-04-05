@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmoniq</title>
+    <title>MVWorld</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./track.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +15,24 @@
         <div class="top">
             <div class="logo">
                 <i class="bx bxl-deezer"></i>
-                <span>Harmoniq</span>
+                <span>MVWorld</span>
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
         
-        <ul>
-            
-            <li>
-                <a href="../home/home.html">
+        <ul id="nav">
+                
+            <li id="0">
+                <a href="../home/home.html" id="nav0">
                     <i class='bx bxs-home-heart' ></i>
-                    <span class="nav-item">Home</span>
+                    <span class="nav-item" >Home</span>
                 </a>
             </li>
 
-            <li>
-                <a href="#">
+            <li id="1">
+                <a href="#" id="nav1">
                     <i class='bx bxs-music' style="color: #021526;"></i>
-                    <span class="nav-item"  style="color: #021526;">Tracks</span>
+                    <span class="nav-item" style="color: #021526;">Tracks</span>
                 </a>
             </li>
 
@@ -43,22 +43,22 @@
                 
             </li>
 
-            <li>
-                <a href="../list/list.html">
+            <li id="2">
+                <a href="../list/list.html" id="nav2">
                     <i class='bx bxs-playlist' ></i>
                     <span class="nav-item">List</span>
                 </a>
             </li>
 
-            <li>
-                <a href="../signup/signup.html">
+            <li id="3">
+                <a href="../signup/signup.html" id="nav3">
                     <i class='bx bx-user-plus'></i>
                     <span class="nav-item">Join</span>
                 </a>
             </li>
 
-            <li>
-                <a href="../login/login.html">
+            <li id="4">
+                <a href="../login/login.html" id="nav4"> 
                     <i class='bx bxs-user-check'></i>
                     <span class="nav-item">LogIn</span>
                 </a>
@@ -75,16 +75,16 @@
                 </div>
             </header>
 
-            <h1 class="menuTitle">OUR <br> SONGS</h1>
+            <h1 class="menuTitle">OUR <br> MV</h1>
 
             <div class="add-song">
                 <div class="popUp" id="popup">
                     <div class="add-product">
-                        <h2>ADD SONG:</h2>
+                        <h2>ADD MV:</h2>
                         <input type="text" id="name" placeholder="Song name">
                         <input type="text" id="img" placeholder="Song image">
-                        <input type="file" id="song" placeholder="Song file">
-                        <button id="save-song" onclick="closePopup()">Save song</button>
+                        <input type="text" id="MV" placeholder="Song MV"> <br>
+                        <button id="save-song" onclick="closePopup()">Save MV</button>
                     </div>
                 </div>
             </div>
@@ -94,9 +94,10 @@
             </div>
 
             
-
+        
         </div>
     </div>
+    <div id="blur"></div>
     <script src="../main.js"></script>
     <script src="./track.js"></script>
     <script type="module" src="../firebase-config.js"></script>
