@@ -3,7 +3,7 @@ let users = []
 function signUp(e){
     e.preventDefault();
     let username = document.getElementById('username').value;
-    let phone = document.getElementById('phone').value;
+    let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmPassword').value;
     if (username.length < 3){
@@ -24,7 +24,7 @@ function signUp(e){
         }
     }
     users.push({
-        phone: phone,
+        email: email,
         username: username,
         password: password,
     });
