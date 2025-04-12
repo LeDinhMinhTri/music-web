@@ -100,191 +100,60 @@
     left: 80px;
     transition: all 0.5s ease;
     width: calc(100% - 80px);
-    padding: 1rem;
 }
-.container{
-    padding: 20px 36px;
-}
-.container header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.container header .search{
-    display: flex;
-    align-items: center;
-    gap: 6px;
+#img{
     width: 100%;
-    background-color: rgb(141, 11, 65);
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 20px;
-}
-.container header .search input{
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-}
-.container header .search i{
-    color: white;
-}
-::placeholder{
-    color: rgba(255, 255, 255, 0.634);
-}
-
-.container .random img{
-    width: 500px;
-    height: 250px;
-    border: 5px solid rgb(106, 8, 49);
-    border-radius: 15px;
-    margin-right: 150px;
-}
-.container .random{
-    margin-top: 20px;
+    height: 100vh;
+    object-fit: cover;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: black;
-    border: 5px solid rgb(141, 11, 65);
-    padding: 15px;
-    border-radius: 15px;
-    background-color: white;
-}
-.container .random .left .info{
-    margin-top: 12px;
-    padding: 26px;
-}
-.container .random .left .info h2{
-    font-size: 56px;
-    margin-bottom: 8px;
-}
-.container .random .left .info h4,
-.container .random .left .info h5{
-    display: inline;
-}
-.container .random .left .info h5{
-    color: grey;
-}
-.container .random .left .info .button{
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-.container .random .left .info .button button{
-    padding: 12px 16px;
-    background-color: rgb(141, 11, 65);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.container .random .left .info .button i{
-    color: rgb(141, 11, 65);
-    font-size: 20px;
-}
-.container .playlist .music-list .items .item .info img{
-    width: 50px;
-    border: 3px solid rgb(71, 15, 38);
-    border-radius: 15px;
-}
-.container .playlist{
-    margin-top: 14px;
-    display: flex;
-    gap: 20px;
-}
-.container .playlist .genres{
-    color: white;
-    background-color: rgb(75, 89, 69);
-    padding: 20px;
-    border-radius: 6px;
-    width: 40%;
-}
-.container .playlist .genres .header,
-.container .playlist .music-list .header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-.container .playlist .genres .items{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-.container .playlist .genres .items .item{
-    padding: 13px 1px;
-    background-color: #671414;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.container .playlist .genres .items .item p{
-    font-size: 14px;
-    font-weight: bold;
-}
-.container .playlist .genres .items .item:nth-child(1){
-    background-color: #A1D6CB;
-}.container .playlist .genres .items .item:nth-child(2){
-    background-color: #FF8383;
-}.container .playlist .genres .items .item:nth-child(3){
-    background-color: #FFF574;
-}.container .playlist .genres .items .item:nth-child(4){
-    background-color: #A1EEBD;
-}.container .playlist .genres .items .item:nth-child(5){
-    background-color: #A19AD3;
-}.container .playlist .genres .items .item:nth-child(6){
-    background-color: #E73879;
-}
-.container .playlist .music-list{
-    background-color: rgb(141, 11, 65);
-    padding: 20px;
-    color: white;
-    border-radius: 6px;
-    width: 65%;
-}
-.container .playlist .music-list .items .item{
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: fixed;
+}
+.container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.desc{
+    z-index: 999;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    margin-left: 200px;
+    padding-top: 170px;
+}
+.desc h1{
+    font-size: 100px;
+    font-weight: bolder;
     margin-bottom: 20px;
+    color: rgb(145, 173, 134);
 }
-.container .playlist .music-list .items .item:last-child{
-    margin-bottom: 0;
+.line{
+    margin: 50px 0;
+    width: 1000px;
+    border: 1px solid rgba(255, 255, 255, 0.689);
 }
-.container .playlist .music-list .items .item .info,
-.container .playlist .music-list .items .item .actions{
+.stats{
     display: flex;
-    align-items: center;
-    gap: 20px;
+    gap: 100px;
+    text-align: center;
 }
-.container .playlist .music-list .items .item .info p{
-    color: rgb(208, 208, 208);
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 6px;
+#logo{
+    position: absolute;
+    width: 300px;
+    left: -45px;
+    top: -50px;
 }
-.container .playlist .music-list .items .item .actions p{
-    font-size: 13px;
-    font-weight: bold;
-}
-.container .playlist .music-list .items .item .actions .icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(207, 85, 136);
-    padding: 6px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#plus{
-    font-size: 20px;
-    cursor: pointer;
+#small-logo{
+    width: 100px;
+    margin-left: 8px;
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 600px) {
@@ -329,30 +198,24 @@
         display: flex;
         justify-content: space-around;
     }
-    .random img{
+    #img{
+        width: 100%;
+        
+    }
+    .intro{
         display: none;
     }
-    .random{
-        height: 200px;
+    #logo{
+        width: 470px;
+        top: 300px;
     }
-    #artist , #plays{
-        display: none;
+    #welcome{
+        font-size: 50px;
+        margin-left: 50px;
+        flex-wrap: wrap;
+
     }
-    .container .random .left .info{
-        margin: 0;
-        padding: 0;
-    }
-    .container .random .left .info .button{
-        margin: 0;
-    }
-    .container .playlist{
-        flex-direction: column;
-    }
-    .container .playlist .genres{
-        width: 100%;
-    }
-    .container .playlist .music-list{
-        width: 100%;
-        height: 230px;
+    .desc{
+        margin-left: 0px;
     }
 }

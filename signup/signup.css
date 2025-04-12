@@ -21,6 +21,7 @@ body {
   height: 650px;
   border-radius: 20px;
   overflow: hidden;
+  padding: 0 !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -43,8 +44,8 @@ body {
 
 .back-link {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 50px;
+  right: 130px;
   color: white;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
@@ -85,7 +86,9 @@ body {
 .indicator.active {
   background-color: white;
 }
-
+#small-logo{
+  width: 70px;
+}
 /* Right Panel */
 .right-panel {
   width: 55%;
@@ -287,6 +290,31 @@ input:focus {
 #password{
     margin-top: 15px;
 }
-.bg-vid{
-    
+@media screen and (max-width: 600px) {
+  .container {
+    height: 100vh;
+    border-radius: 0;
+  }
+  .left-panel{
+    display: none;
+  }
+  .right-panel{
+    width: 100%;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+  }
+  .back-link{
+    top: 20px;
+    right: 20px;
+  }
+  .create-account-btn {
+    width: 100%;
+  }
+  .social-login {
+    display: flex;
+    width: 100%;
+  }
 }

@@ -96,6 +96,7 @@
 .main-content{
     position: relative;
     background-image: url("https://i.pinimg.com/736x/ff/a5/fc/ffa5fce3b984b782c536af43e1658e28.jpg");
+    background-repeat: repeat;
     min-height: 100vh;
     top: 0;
     left: 80px;
@@ -142,66 +143,7 @@
     justify-content: center;
 }
 
-.popUp{
-    z-index: 999;
-    width: 400px;
-    background: white;
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    text-align: center;
-    padding: 0 30px 30px;
-    color: black;
-    box-shadow: 0 0 10px black;
-    visibility: hidden;
-    transition: transform 0.5s, top 0.4s;
-}
-#plus{
-    width: 100px;    
-}
-.popUp h2{
-    font-size: 38px;
-    font-weight: 500;
-    margin: 30px 0 10px;
-}
 
-.open-popup{
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-    top: 50%;
-}
-#save-song{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s ease;
-}
-
-.add-product input {
-    padding: 10px;
-    border: 2px solid rgb(33, 91, 32);
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
-    margin: 5px;
-}
-
-.add-product button {
-    padding: 10px 20px;
-    background-color: rgb(37, 82, 41);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s ease;
-}
 
 .add-product button:hover {
     background-color: rgb(48, 80, 35);
@@ -209,15 +151,7 @@
 .add-product ::placeholder{
     color: rgba(0, 0, 0, 0.634);
 }
-.menuTitle{
-    z-index: 1;
-    opacity: 0.3;
-    font-size: 300px;
-    line-height: 280px;
-    color: rgb(51, 66, 51);
-    position: fixed;
-    pointer-events: none;
-}
+
 #blur{
     position: fixed;
     top: 0;
@@ -274,13 +208,146 @@
         display: flex;
         justify-content: space-around;
     }
-    .menuTitle{
-        font-size: 150px;
-        line-height: 150px;
-        position: fixed;
+    #popup{
+        left: 450px;
+    }
+    .left-panel{
+        border-radius: 15px;
     }
     
+    
+    
+}
+#small-logo{
+    width: 100px;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+#song-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
 }
 
+.song-item{
+    margin-top: 50px;
+    background-color: rgb(75, 89, 69);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 300px;
+    height: 230px;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    padding: 10px;
+}
+.song-item img{
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 15px;
+}
+.song-item:hover{
+    background-color: rgb(141, 11, 65);
+    color:rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-link:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  .popUp{
+    z-index: 999;
+    width: 900px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    color: black;
+    box-shadow: 0 0 10px black;
+    visibility: hidden;
+    transition: transform 0.5s, top 0.4s;
+}
+#plus{
+    width: 100px;    
+}
+.popUp h2{
+    font-size: 38px;
+    font-weight: bolder;
+    margin: 30px 0 10px;
+}
 
+.open-popup{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+}
+#save-song{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(141, 11, 65);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+#save-song:hover{
+    background-color: rgb(203, 15, 93);
+}
 
+.add-product input {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid rgb(33, 91, 32);
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.left-panel {
+    width: 50%;
+    height: 500px;
+    background-color: rgb(33, 40, 30);
+    padding: 40px;
+    color: white;
+    position: relative;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.right-panel{
+    width: 50%;
+    height: 500px;
+    background-image: url();
+    background-size: 450px;
+    color: white;
+    position: absolute;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    right: 0;
+}
+.right-panel img{
+    width: 100%;
+    height: 100%;
+}

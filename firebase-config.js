@@ -73,22 +73,3 @@ async function deleteSong(songId){
 
 displaySongs();
 
-
-
-
-async function saveSongs(){
-    const name = document.getElementById("name").value;
-    const img = document.getElementById("img").value;
-    const song = document.getElementById("song").value;
-    
-
-    const docRef = await addDoc(collection(db, "song"),{
-        name: name,
-        img: img,
-        song: song,
-        
-    });
-    alert("Song added successfully with ID: "+docRef.id);
-    window.location.reload();
-}
-document.getElementById("save-song").addEventListener('click',saveSongs);

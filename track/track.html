@@ -14,8 +14,7 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class="bx bxl-deezer"></i>
-                <span>MVWorld</span>
+                <img id="small-logo" src="../img/logo.png" alt="">
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
@@ -38,17 +37,18 @@
 
             <li>
                 <a>
-                    <i class='bx bxs-plus-circle' id="add" onclick="openPopup()"></i>
+                    <i class='bx bxs-plus-circle' id="add" ></i>
+                    <span class="nav-item" >Add</span>
                 </a>
                 
             </li>
 
-            <li id="2">
+            <!-- <li id="2">
                 <a href="../list/list.html" id="nav2">
                     <i class='bx bxs-playlist' ></i>
                     <span class="nav-item">List</span>
                 </a>
-            </li>
+            </li> -->
 
             <li id="3">
                 <a href="../signup/signup.html" id="nav3">
@@ -71,26 +71,35 @@
             <header>
                 <div class="search">
                     <i class='bx bx-search'></i>
-                    <input type="text" placeholder="What jingles do you consider today?">
+                    <input id="search-bar" type="text" placeholder="What MV do you consider today?">
                 </div>
             </header>
 
-            <h1 class="menuTitle">OUR <br> MV</h1>
 
             <div class="add-song">
                 <div class="popUp" id="popup">
                     <div class="add-product">
-                        <h2>ADD MV:</h2>
-                        <input type="text" id="name" placeholder="Song name">
-                        <input type="text" id="img" placeholder="Song image">
-                        <input type="text" id="MV" placeholder="Song MV"> <br>
-                        <button id="save-song" onclick="closePopup()">Save MV</button>
+                        <div class="right-panel">
+                            <img id="add-img" src="../img/logo.png" alt="">
+                        </div>
+                        <div class="left-panel">
+                            <a href="../track/track.html" class="back-link">Back to website →</a>
+                            <h2>Add your MV now!</h2>
+                            <input type="text" id="name" placeholder="MV name & artist(s)">
+                            <input type="text" id="img" placeholder="MV image">
+                            <input type="text" id="MV" placeholder="MV link"> <br>
+                            <button id="save-song" >Save MV</button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
 
-            <div class="music-tracks">
-                <div id="song-list"></div>
+            <div id="music-tracks">
+                <div id="song-list">
+                    
+                </div>
+                
             </div>
 
             
@@ -98,8 +107,7 @@
         </div>
     </div>
     <div id="blur"></div>
+    <script type="module" src="./track.js"></script>
     <script src="../main.js"></script>
-    <script src="./track.js"></script>
-    <script type="module" src="../firebase-config.js"></script>
 </body>
 </html>

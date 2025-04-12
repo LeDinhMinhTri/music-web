@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-import { GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc , getDoc} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,7 +18,8 @@ measurementId: "G-Q1G6GXC4ES"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+console.log(app);
+const db = getFirestore(app)
 
 function getSongIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -40,10 +40,48 @@ console.log(getSongById(getSongIdFromUrl()))
 
 async function displaySong() {
     const song = await getSongById(getSongIdFromUrl());
-    let songPlay = document.getElementById("item3");
-    let name = document.getElementById("item2");
+    let name = document.getElementById("item1");
     name.innerHTML = song.name;
-    let img = document.getElementById("img");
+    let img = document.getElementById("item3");
     img.src = song.img;
+    let MV = document.getElementById("MV");
+    let embed = song.MV.split('?v=')[1];
+    MV.src = "https://www.youtube.com/embed/" + embed +"?autoplay=1&rel=0"; ;
 }
-displayProduct()
+
+function setupSearchBar() {
+    const searchBar = document.getElementById("search-bar");
+    if (!searchBar) {
+        console.error("Search bar element not found!");
+        return;
+    }
+
+    searchBar.addEventListener("keypress", async function (event) {
+        if (event.key === "Enter") {
+            const query = searchBar.value.trim().toLowerCase();
+            try {
+                const songsSnapshot = await getDocs(collection(db, "song"));
+                let foundSong = null;
+
+                songsSnapshot.forEach((doc) => {
+                    const songData = doc.data();
+                    if (songData.name.toLowerCase() === query) {
+                        foundSong = { id: doc.id, ...songData };
+                    }
+                });
+
+                if (foundSong) {
+                    window.location.href = `../song detail/detail.html?id=${foundSong.id}`;
+                } else {
+                    alert("Song not found!");
+                }
+            } catch (error) {
+                console.error("Error fetching songs:", error);
+                alert("An error occurred while searching for the song.");
+            }
+        }
+    });
+}
+
+setupSearchBar();
+displaySong()

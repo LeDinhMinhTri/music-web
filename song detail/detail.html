@@ -14,44 +14,50 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class="bx bxl-deezer"></i>
-                <span>Harmoniq</span>
+                <img id="small-logo" src="../img/logo.png" alt="">
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
         
-        <ul>
-            
-            <li>
-                <a href="../home/home.html">
+        <ul id="nav">
+                
+            <li id="0">
+                <a href="../home/home.html" id="nav0">
                     <i class='bx bxs-home-heart' ></i>
-                    <span class="nav-item">Home</span>
+                    <span class="nav-item" >Home</span>
                 </a>
             </li>
 
-            <li>
-                <a href="../track/track.html">
+            <li id="1">
+                <a href="../track/track.html" id="nav1">
                     <i class='bx bxs-music' style="color: #021526;"></i>
-                    <span class="nav-item"  style="color: #021526;">Tracks</span>
+                    <span class="nav-item" style="color: #021526;">Tracks</span>
                 </a>
             </li>
 
             <li>
-                <a href="../list/list.html">
+                <a>
+                    <i class='bx bxs-plus-circle' id="add" ></i>
+                </a>
+                
+            </li>
+
+            <!-- <li id="2">
+                <a href="../list/list.html" id="nav2">
                     <i class='bx bxs-playlist' ></i>
                     <span class="nav-item">List</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li>
-                <a href="../signup/signup.html">
+            <li id="3">
+                <a href="../signup/signup.html" id="nav3">
                     <i class='bx bx-user-plus'></i>
                     <span class="nav-item">Join</span>
                 </a>
             </li>
 
-            <li>
-                <a href="../login/login.html">
+            <li id="4">
+                <a href="../login/login.html" id="nav4"> 
                     <i class='bx bxs-user-check'></i>
                     <span class="nav-item">LogIn</span>
                 </a>
@@ -64,30 +70,23 @@
             <header>
                 <div class="search">
                     <i class='bx bx-search'></i>
-                    <input type="text" placeholder="What other jingles do you want to hear?">
+                    <input id="search-bar" type="text" placeholder="What other MVs do you want to hear?">
                 </div>
             </header>
 
             <div class="grid-container">
-                <div id="item1"><img src="" alt=""></div>
-                <div id="item2"></div>
-                <div id="item3">
-                    <div class="info">
-                        <div class="action">
-                            <i id="playbtn" onclick="playPause()" class='bx bx-pause'></i>
-                            <input type="range" value="0" id="progress">
-                            <i id="plus" class='bx bx-plus-circle'></i>
-                            <audio id="song">
-                                <source src="../mp3/21 Savage - redrum (Official Audio).mp3" type="audio/mpeg">
-                            </audio>
-                        </div>
-                    </div>
+                <div id="item2"><iframe id="MV" src="" style="border-radius: 15px;" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
+                <div class="text-container">
+                    <div id="item1"></div>
+                </div>
+                <div class="text-container">
+                    <div class="image-cropper"><img id="item3" class=".pic" src="" alt=""></div>
                 </div>
             </div>
             
         </div>
     </div>
-    <script src="./detail.js"></script>
+    <script type="module" src="./detail.js"></script>
     <script src="../main.js"></script>
 </body>
 </html>
