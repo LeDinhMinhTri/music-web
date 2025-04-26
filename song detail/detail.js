@@ -83,5 +83,33 @@ function setupSearchBar() {
     });
 }
 
+function setupFavoriteButton() {
+    const favButton = document.getElementById("fav");
+    if (!favButton) {
+        console.error("Favorite button element not found!");
+        return;
+    }
+
+    favButton.addEventListener("click", function () {
+        const songId = getSongIdFromUrl();
+        if (!songId) {
+            console.error("No song ID found in URL!");
+            return;
+        }
+
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        if (!favorites.includes(songId)) {
+            favorites.push(songId);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            alert("Song added to favorites!");
+        } else {
+            alert("Song is already in favorites!");
+        }
+        
+    });
+}
+
+setupFavoriteButton();
+
 setupSearchBar();
 displaySong()
