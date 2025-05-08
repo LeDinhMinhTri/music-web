@@ -83,33 +83,92 @@ function setupSearchBar() {
     });
 }
 
-function setupFavoriteButton() {
+
+function setupHeartButton() {
     const favButton = document.getElementById("fav");
     if (!favButton) {
         console.error("Favorite button element not found!");
         return;
     }
 
-    favButton.addEventListener("click", function () {
+    favButton.addEventListener("click", async function () {
         const songId = getSongIdFromUrl();
+        const currentUser = localStorage.getItem("current");
+
         if (!songId) {
             console.error("No song ID found in URL!");
             return;
         }
 
-        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        if (!favorites.includes(songId)) {
-            favorites.push(songId);
-            localStorage.setItem("favorites", JSON.stringify(favorites));
-            alert("Song added to favorites!");
-        } else {
-            alert("Song is already in favorites!");
+        if (!currentUser) {
+            alert("No user is logged in!");
+            return;
         }
-        
+
+        try {
+            const song = await getSongById(songId);
+            if (!song) {
+                console.error("Song not found!");
+                return;
+            }
+            await addDoc(collection(db, "fav"), {
+                songId: songId,
+                user: currentUser,
+                name: song.name,
+                img: song.img,
+            });
+            alert("Song added to favorites!");
+            location.reload();
+        } catch (error) {
+            console.error("Error adding favorite to Firestore:", error);
+            alert("An error occurred while adding the song to favorites.");
+        }
     });
 }
 
-setupFavoriteButton();
+setupHeartButton();
+
+
+async function displayFavoriteButtonState() {
+    const favButton = document.getElementById("fav");
+    if (!favButton) {
+        console.error("Favorite button element not found!");
+        return;
+    }
+
+    const songId = getSongIdFromUrl();
+    if (!songId) {
+        console.error("No song ID found in URL!");
+        return;
+    }
+
+    try {
+        const favSnapshot = await getDocs(collection(db, "fav"));
+        let isFavorited = false;
+
+        favSnapshot.forEach((doc) => {
+            const favData = doc.data();
+            if (favData.songId === songId) {
+                isFavorited = true;
+            }
+        });
+
+        if (isFavorited) {
+            favButton.classList.add("favorited");
+            favButton.innerHTML = "♥";
+        } else {
+            favButton.classList.remove("favorited");
+            favButton.innerHTML = "♡";
+        }
+    } catch (error) {
+        console.error("Error checking favorite status in Firestore:", error);
+    }
+}
+
+
+
+displayFavoriteButtonState();
+
 
 setupSearchBar();
 displaySong()

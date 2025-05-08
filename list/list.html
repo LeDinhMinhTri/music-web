@@ -67,28 +67,36 @@
                 </li>
             </ul>
         </div>
-
         <div class="main-content">
-            <div class="container">
-                <div class="list">
-                    <div class="header">
-                        <h1>YOUR FAVOURITE MV:</h1>
+            <div class="background">
+              <div class="card">
+                <div class="card-left">
+                  <div class="tracks-badge">MVWorld</div>
+                  <div class="cover-art">
+                    <img src="https://i.pinimg.com/474x/00/8d/57/008d578db64d306b1db931adfc4f82cc.jpg" alt="Playlist cover">
+                  </div>
+                  <div class="playlist-info">
+                    <span class="playlist-by">PLAYLIST BY</span>
+                    <h1 id="playlist-author"></h1>
+                  </div>
+                </div>
+                <div class="card-right">
+                  <div class="right-header">
+                    <div>
+                      <span class="featured">FEATURED PLAYLIST</span>
+                      <h2 class="playlist-title">Favorite MVs</h2>
+                      <p class="playlist-desc">Your absolute MVs chosen by yourself.</p>
                     </div>
-                    <div class="content">
-                        <div class="search">
-                            <i class='bx bx-search'></i>
-                            <input type="text" placeholder="What MV are you looking for?">
-                        </div>
-                        <ul class="songList" id="songList">
-
-                        </ul>
-                    </div>
-                    
+                  </div>
+                  <div class="songlist-container">
+                    <ul id="songList">
+                    </ul>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../main.js"></script>
-    <script src="../list/list.js"></script>
+    <script  src="../main.js"></script>
+    <script type="module" src="./list.js"></script>
 </body>
 </html>
