@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -121,6 +122,59 @@ function searchSongs() {
             songList.appendChild(songDiv);
         });
     });
+}
+
+const auth = getAuth(app);
+const ADMIN_EMAIL = "mtokito362@gmail.com"; // Replace with your admin email
+
+function checkAdmin() {
+    onAuthStateChanged(auth, (user) => {
+        if (user && user.email === ADMIN_EMAIL) {
+            addBtn.style.display = "block";
+            document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = "block");
+        } else {
+            addBtn.style.display = "none";
+            document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = "none");
+        }
+    });
+}
+
+// Call checkAdmin after rendering songs
+displaySongs = async function() {
+    const songList =  document.getElementById("song-list");
+    songList.innerHTML = "";
+
+    const songs = await getSong();
+
+    songs.forEach((song) =>{
+        const songDiv = document.createElement("div");
+        songDiv.classList.add("border")
+        songDiv.innerHTML = `
+        <div class="song-item">
+            <h2 class="name" >${song.name}</h2>
+            <img class="img" src="${song.img}" width = "100">
+            <button class="delete-btn" data-id="${song.id}" style="display:none;">Delete</button>
+        </div>`;
+        songDiv.addEventListener('click', (e)=>{
+            if (!e.target.classList.contains('delete-btn')) {
+                window.location.href = `../song detail/detail.html?id=${song.id}`;
+            }
+        });
+        songList.appendChild(songDiv);
+    });
+    document.querySelectorAll('.delete-btn').forEach((button)=>{
+        button.addEventListener('click', async (event)=>{
+            event.stopPropagation();
+            const songId = event.target.getAttribute('data-id');
+            await deleteSong(songId);
+        })
+    });
+    checkAdmin();
+};
+let current = localStorage.getItem('current');
+if(!current){
+    alert('Please log in')
+    window.location.href = '../login/login.html'
 }
 
 searchSongs();
