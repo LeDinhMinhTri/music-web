@@ -124,22 +124,28 @@ function searchSongs() {
     });
 }
 
-const auth = getAuth(app);
-const ADMIN_EMAIL = "mtokito362@gmail.com"; // Replace with your admin email
-
 function checkAdmin() {
-    onAuthStateChanged(auth, (user) => {
-        if (user && user.email === ADMIN_EMAIL) {
-            addBtn.style.display = "block";
-            document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = "block");
-        } else {
-            addBtn.style.display = "none";
-            document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = "none");
-        }
-    });
+    const adminEmail = "Leo";
+    let current = localStorage.getItem('current');
+    let addBtn = document.getElementById('add');
+    let addBtnSpan = document.getElementById('add-span');
+    // Show/hide add button and its span
+    if (current === adminEmail) {
+        addBtn.style.display = "block";
+        if (addBtnSpan) addBtnSpan.style.display = "inline";
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.style.display = "inline-block";
+        });
+    } else {
+        addBtn.style.display = "none";
+        if (addBtnSpan) addBtnSpan.style.display = "none";
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.style.display = "none";
+        });
+    }
 }
 
-// Call checkAdmin after rendering songs
+
 displaySongs = async function() {
     const songList =  document.getElementById("song-list");
     songList.innerHTML = "";

@@ -45,7 +45,7 @@
   .back-link {
     position: absolute;
     top: 50px;
-    right: 130px;
+    right: 50px;
     color: white;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.2);
@@ -91,6 +91,7 @@
   }
   /* Right Panel */
   .right-panel {
+    position: relative;
     width: 55%;
     background-color: rgb(33, 40, 30);
     padding: 40px;
