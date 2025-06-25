@@ -165,10 +165,47 @@ async function displayFavoriteButtonState() {
     }
 }
 
-
-
+async function getSong() {
+    const querySnapshot = await getDocs(collection(db, "song"));
+    const songs = [];
+    console.log(querySnapshot)
+    querySnapshot.forEach((doc)=>{
+        if (doc.id !== getSongIdFromUrl()) {
+            songs.push({ id : doc.id, ...doc.data()});
+        };
+        
+    });
+    return songs;
+}
+getSong().then((songs) => {
+    console.log(songs);
+}
+); 
 displayFavoriteButtonState();
 
+
+async function displayRandomSongs() {
+    const songs = await getSong();
+    if (songs.length < 3) {
+        console.error("Not enough songs to display random selection.");
+        return;
+    }
+    const shuffled = songs.sort(() => 0.5 - Math.random());
+    const randomSongs = shuffled.slice(0, 3);
+
+    randomSongs.forEach((song, idx) => {
+        const songElem = document.getElementById(`song${idx + 1}`);
+        if (songElem) {
+            songElem.querySelector(".song-title").textContent = song.name;
+            songElem.querySelector("img").src = song.img;
+            songElem.onclick = () => {
+                window.location.href = `../song detail/detail.html?id=${song.id}`;
+            };
+        }
+    });
+}
+
+displayRandomSongs();
 
 setupSearchBar();
 displaySong()

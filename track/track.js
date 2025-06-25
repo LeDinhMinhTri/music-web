@@ -114,7 +114,7 @@ function searchSongs() {
             songDiv.innerHTML = `
             <div class="song-item">
                 <h2 class="name">${song.name}</h2>
-                <img class="img" src="${song.img}" width="100">
+                <img class="img" src="${song.img}">
             </div>`;
             songDiv.addEventListener("click", () => {
                 window.location.href = `../song detail/detail.html?id=${song.id}`;
@@ -125,8 +125,8 @@ function searchSongs() {
 }
 
 function checkAdmin() {
-    const adminEmail = "Leo";
-    let current = localStorage.getItem('current');
+    const adminEmail = "mtokito362@gmail.com";
+    let current = localStorage.getItem('currentEmail');
     let addBtn = document.getElementById('add');
     let addBtnSpan = document.getElementById('add-span');
     // Show/hide add button and its span
@@ -160,6 +160,8 @@ displaySongs = async function() {
             <h2 class="name" >${song.name}</h2>
             <img class="img" src="${song.img}" width = "100">
             <button class="delete-btn" data-id="${song.id}" style="display:none;">Delete</button>
+            <i class='bx bx-play'></i>
+            <div class="blur"></div>
         </div>`;
         songDiv.addEventListener('click', (e)=>{
             if (!e.target.classList.contains('delete-btn')) {

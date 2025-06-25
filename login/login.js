@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -25,6 +25,7 @@ btn.addEventListener("click", function () {
             console.log(user);
             alert("Login success");
             localStorage.setItem('current',user.displayName);
+            localStorage.setItem('currentEmail',user.email);
             window.location.href = '../home/home.html';
         })
 })
@@ -32,20 +33,33 @@ btn.addEventListener("click", function () {
 
 let form = document.querySelector('form');
 
-function login(e){
+async function login(e){
     e.preventDefault();
 
-    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-    let users = JSON.parse(localStorage.getItem("users"))
-    for (let i = 0; i<users.length; i++){
-        if(username === users[i].username && password === users[i].password){
-            alert("Login successfully")
-            window.location.href = '../home/home.html'
-            localStorage.setItem('current',username)
-            return;
-        }
-    }
-    alert('Wrong username or password')
-}
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        alert(`Đăng nhập thành công: ${userCredential.user.email}`);
+        localStorage.setItem('current', userCredential.user.email.split('@')[0]);
+        localStorage.setItem('currentEmail', userCredential.user.email);
+        window.location.href = '../home/home.html';
+      } catch (error) {
+        alert(`Lỗi đăng nhập: ${error.message}`);
+      }
+    };
+    // let users = JSON.parse(localStorage.getItem("users"))
+    // for (let i = 0; i<users.length; i++){
+    //     if(username === users[i].username && password === users[i].password){
+    //         alert("Login successfully")
+    //         window.location.href = '../home/home.html'
+    //         localStorage.setItem('current',username)
+    //         return;
+    //     }
+    // }
+    // alert('Wrong username or password')
+
 form.addEventListener('submit',login)
+
+
+    

@@ -26,6 +26,7 @@ checkUserLogin();
 
 logoutBtn.addEventListener('click', function() {
     localStorage.removeItem('current');
+    localStorage.removeItem('currentEmail');
     alert("Logout successfully")
     checkUserLogin();
     window.location.href = "../home/home.html";

@@ -205,8 +205,8 @@ justify-content: center;
 .card {
 background: #fff;
 display: flex;
-width: 1080px;
-height: 600px;
+width: 1500px;
+height: 800px;
 border-radius: 12px;
 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
 overflow: hidden;
@@ -225,7 +225,7 @@ align-items: flex-start;
 
 .cover-art img {
 width: 100%;
-height: 620px;
+height: 100%;
 object-fit: cover;
 display: block;
 border-bottom: 2px solid rgba(255,255,255,0.08);

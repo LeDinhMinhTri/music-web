@@ -32,7 +32,7 @@ btn.addEventListener("click", function () {
 
 let form = document.querySelector('form')
 let users = []
-function signUp(e){
+async function signUp(e){
     e.preventDefault();
     let username = document.getElementById('username').value;
     let email = document.getElementById('email').value;
@@ -42,25 +42,27 @@ function signUp(e){
         alert('Username must be at least 3 characters')
         return;
     }
+    if (password.length < 6) {
+        alert('Password must be more than 6 characters');
+        return;
+    }
+    if (!email) {
+        alert('Email is required');
+        return;
+    }
     if (password !== confirmPassword){
         alert('Password does not match');
         return;
     }
-    if (localStorage.getItem('users')){
-        users = JSON.parse(localStorage.getItem('users'));
-        for (let i = 0;i < users.length; i++){
-            if (username == users[i].username){
-                alert('Username already exists');
-                return;
-            }
-        }
-    }
-    users.push({
-        email: email,
-        username: username,
-        password: password,
-    });
-    localStorage.setItem('users', JSON.stringify(users));
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        alert( `Đăng ký thành công: ${userCredential.user.email}`);
+        localStorage.setItem('current', username);
+        localStorage.setItem('currentEmail', email);
+        window.location.href = '../login/login.html';
+      } catch (error) {
+        alert(`Lỗi đăng ký: ${error.message}`);
+      }
 
     alert('User registered successfully');
     window.location.href = '../login/login.html';

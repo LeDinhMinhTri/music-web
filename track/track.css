@@ -224,7 +224,8 @@
     margin-top: 5px;
 }
 #song-list{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     flex-wrap: wrap;
     justify-content: space-around;
     position: relative;
@@ -241,6 +242,7 @@
     color: rgb(255, 255, 255);
     font-size: 10px;
     padding: 10px;
+    position: relative;
 }
 .song-item img{
     width: 100%;
@@ -253,7 +255,9 @@
     background-color: rgb(141, 11, 65);
     color:rgb(255, 255, 255);
     transition: all 0.3s ease;
+    transform: scale(1.05);
 }
+
 .back-link {
     position: absolute;
     top: 20px;
@@ -354,16 +358,63 @@
 }
 
 .delete-btn{
-    background-color: rgb(141, 11, 65);
+    background-color: rgb(75, 89, 69);
     color: white;
     border: none;
+    margin-top: 7px;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 10px;
     transition: 0.3s ease;
-    width: 100%;
+    width: 0%;
+    opacity: 0;
+    position: relative;
+    transition: all 0.3s ease;
 }
-.delete-btn:hover{
-    background-color: rgb(75, 89, 69);
+.name{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 3;
+    position: relative;
+}
+.img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.bx-play{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.song-item:hover .bx-play{
+    opacity: 1;
+    top: 50%;
+}
+.blur{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.song-item:hover .blur{
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+
+}
+.song-item:hover .delete-btn{
+    opacity: 1;
+    z-index: 999;
+    width: 100%;
 }
