@@ -242,7 +242,9 @@
     #item3{
         display: none;
     }
-
+    #song-list {
+        display: none !important;
+    }
 }
 
 #action{
