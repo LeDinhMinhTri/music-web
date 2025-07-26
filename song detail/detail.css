@@ -259,6 +259,7 @@
 }
 #fav{
     cursor: pointer;
+    padding-bottom: 20px;
 }
 #song-list.text-container {
     display: flex;
