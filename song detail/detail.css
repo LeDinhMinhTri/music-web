@@ -95,7 +95,7 @@
 }
 .main-content{
     position: relative;
-    background-image: url("https://i.pinimg.com/736x/ff/a5/fc/ffa5fce3b984b782c536af43e1658e28.jpg");
+    background-color: black;
     min-height: 100vh;
     top: 0;
     left: 80px;
@@ -116,7 +116,7 @@
     align-items: center;
     gap: 6px;
     width: 100%;
-    background-color: rgb(141, 11, 65);
+    background-color: #4b5945;
     border: 1px solid black;
     padding: 10px;
     border-radius: 20px;
@@ -169,7 +169,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: rgb(52, 68, 52);
+    background-color: rgb(37, 37, 37);
 }
 #item3{
     height: 150px;
@@ -264,7 +264,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background: rgba(52, 68, 52, 0.95);
+    background: rgb(37, 37, 37);
     padding: 20px 0;
     border-radius: 12px;
     gap: 24px;
@@ -305,14 +305,14 @@
     width: 150px;
     height: 200px;
     padding: 10px 0;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
 }
 
 #song-list > div:hover {
-    background: rgba(255,255,255,0.10);
+    background: rgb(75, 89, 69);
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
@@ -350,6 +350,19 @@ h2 {
 #song3:hover .bx-play{
     opacity: 1;
     top: 50%;
+}
+
+#song1:hover {
+    background-color: rgb(75, 89, 69);
+    color:rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+}
+#song2:hover {
+    background-color: rgb(75, 89, 69);
+}
+#song3:hover {
+    background-color: rgb(75, 89, 69);
 }
 .blur{
     position: absolute;

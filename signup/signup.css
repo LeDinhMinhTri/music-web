@@ -10,8 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #444;
-  background-image: url("https://i.pinimg.com/736x/ff/a5/fc/ffa5fce3b984b782c536af43e1658e28.jpg");
+  background-color: #000000 !important;
 }
 
 .container {
@@ -28,8 +27,7 @@ body {
 /* Left Panel */
 .left-panel {
   width: 45%;
-  background: linear-gradient(rgb(75, 89, 69), rgb(141, 11, 65)),
-              url('https://images.unsplash.com/photo-1631149593302-47de857f625c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80') center/cover;
+  background: linear-gradient(rgb(75, 89, 69), rgb(32, 32, 32));
   padding: 30px;
   position: relative;
   color: white;
@@ -209,14 +207,14 @@ input:focus {
 }
 
 .terms-text a {
-  color: rgb(141, 11, 65);
+  color: rgb(153, 180, 142);
   font-weight: 500;
   text-decoration: none;
 }
 
 .create-account-btn {
   width: 100%;
-  background-color: rgb(141, 11, 65);
+  background-color: rgb(75, 89, 69);
   color: white;
   border: none;
   border-radius: 6px;
@@ -229,7 +227,7 @@ input:focus {
 }
 
 .create-account-btn:hover {
-  background-color: rgb(203, 15, 93);
+  background-color: rgb(140, 167, 129);
 }
 
 .divider {

@@ -96,7 +96,7 @@ opacity: 1;
 }
 .main-content{
 position: relative;
-background-image: url("https://i.pinimg.com/736x/ff/a5/fc/ffa5fce3b984b782c536af43e1658e28.jpg");
+background-color: black;
 min-height: 100vh;
 top: 0;
 left: 80px;
@@ -208,7 +208,7 @@ justify-content: center;
 }
 
 .card {
-background: #fff;
+background: #ffffff;
 display: flex;
 width: 1200px;
 height: 600px;
@@ -216,6 +216,7 @@ border-radius: 12px;
 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
 overflow: hidden;
 position: relative;
+color: #000000;
 }
 
 .card-left {
@@ -370,7 +371,7 @@ font-size: 1.05rem;
 }
 
 .delete-btn:hover, .detail-btn:hover {
-    background-color: #8d0b41 ;
+    background-color: #859e7a ;
     color: #fff;
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 4px 16px rgba(141, 11, 65, 0.15);
