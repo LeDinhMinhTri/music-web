@@ -157,7 +157,7 @@
 }
 #item1{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bolder;
     padding-top: 30px;
 }
@@ -172,8 +172,9 @@
     background-color: rgb(52, 68, 52);
 }
 #item3{
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    padding: 10px;
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
@@ -257,10 +258,7 @@
     gap: 30px;
     font-size: 20px;
 }
-#fav{
-    cursor: pointer;
-    padding-bottom: 20px;
-}
+
 #song-list.text-container {
     display: flex;
     flex-direction: row;
@@ -288,8 +286,8 @@
 }
 
 #song-list img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
@@ -304,12 +302,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 200px;
     padding: 10px 0;
     background: rgba(255,255,255,0.04);
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 #song-list > div:hover {
@@ -319,7 +318,7 @@
 }
 h2 {
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
@@ -372,4 +371,33 @@ h2 {
     backdrop-filter: blur(10px);
     border-radius: 15px;
 
+}
+#fav {
+    position: relative;
+    padding-bottom: 45px;
+    cursor: pointer;
+}
+
+#fav::after {
+    content: "Favorite";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fffbe7;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    z-index: 100;
+}
+
+#fav:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px);
 }

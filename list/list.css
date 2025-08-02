@@ -210,8 +210,8 @@ justify-content: center;
 .card {
 background: #fff;
 display: flex;
-width: 1500px;
-height: 800px;
+width: 1200px;
+height: 600px;
 border-radius: 12px;
 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
 overflow: hidden;
@@ -334,7 +334,6 @@ align-items: center;
 gap: 20px;
 border-radius: 9px;
 margin-bottom: 4px;
-cursor: pointer;
 position:relative;
 }
 
@@ -354,14 +353,27 @@ flex: 3 1 160px;
 color: #23223A;
 font-size: 1.05rem;
 }
-.delete-btn , .detail-btn{
+.delete-btn, .detail-btn {
     position: relative;
     border: none;
-    border-radius: 10px;
-    background-color: black;
-    height: 30px;
-    width: 50px;
-    color: white;
+    border-radius: 8px;
+    background-color:  #4b5945;
+    height: 32px;
+    width: 70px;
+    color: #fffbe9;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(75, 89, 69, 0.10);
+    margin-left: 8px;
+}
+
+.delete-btn:hover, .detail-btn:hover {
+    background-color: #8d0b41 ;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 16px rgba(141, 11, 65, 0.15);
 }
 #logo{
     position: absolute;

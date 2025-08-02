@@ -96,14 +96,20 @@ async function deleteSong(songId){
     displaySongs();
 }
 
-function searchSongs() {
+async function searchSongs() {
     const searchInput = document.getElementById("search-bar");
     searchInput.addEventListener("input", async (event) => {
         const searchTerm = event.target.value.toLowerCase();
-        const songs = await getSong();
-        const filteredSongs = songs.filter((song) =>
-            song.name.toLowerCase().includes(searchTerm)
-        );
+
+        // Query Firestore for songs with name matching the search term
+        const querySnapshot = await getDocs(collection(db, "song"));
+        const filteredSongs = [];
+        querySnapshot.forEach((doc) => {
+            const song = { id: doc.id, ...doc.data() };
+            if (song.name && song.name.toLowerCase().includes(searchTerm)) {
+                filteredSongs.push(song);
+            }
+        });
 
         const songList = document.getElementById("song-list");
         songList.innerHTML = "";
