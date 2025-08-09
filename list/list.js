@@ -121,5 +121,3 @@ list.addEventListener('click', async (event) => {
         }
     }
 });
-
-displayCurrentUserName();

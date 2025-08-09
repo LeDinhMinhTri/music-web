@@ -106,6 +106,21 @@ function setupHeartButton() {
         }
 
         try {
+            const favSnapshot = await getDocs(collection(db, "fav"));
+            let alreadyFavorited = false;
+
+            favSnapshot.forEach((doc) => {
+                const favData = doc.data();
+                if (favData.songId === songId && favData.user === currentUser) {
+                    alreadyFavorited = true;
+                }
+            });
+
+            if (alreadyFavorited) {
+                alert("This song is already in your favorites!");
+                return;
+            }
+
             const song = await getSongById(songId);
             if (!song) {
                 console.error("Song not found!");
