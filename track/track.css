@@ -246,7 +246,6 @@
     width: 100%;
     border-radius: 10px;
     position: relative;
-    margin-top: 15px;
 }
 
 .song-item:hover{
@@ -306,7 +305,7 @@
 #save-song{
     width: 100%;
     height: 50px;
-    background-color: rgb(141, 11, 65);
+    background-color: rgb(98, 116, 91);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -317,7 +316,7 @@
     margin-top: 10px;
 }
 #save-song:hover{
-    background-color: rgb(203, 15, 93);
+    background-color: rgb(136, 160, 126);
 }
 
 .add-product input {
@@ -332,7 +331,7 @@
 .left-panel {
     width: 50%;
     height: 500px;
-    background-color: rgb(33, 40, 30);
+    background-color: rgb(60, 70, 56);
     padding: 40px;
     color: white;
     position: relative;
@@ -420,4 +419,27 @@
     opacity: 1;
     z-index: 999;
     width: 100%;
+}
+#load-more {
+    width: 7%;
+    background-color: rgb(75, 89, 69);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+#load-more:hover {
+    background-color: rgb(140, 167, 129);
+    transform: scale(1.05);
+}
+.trend{
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    padding-top: 30px;
 }

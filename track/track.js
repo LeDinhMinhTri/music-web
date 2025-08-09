@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebas
 import { GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+import { query, orderBy, limit, startAfter} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -96,39 +97,87 @@ async function deleteSong(songId){
     displaySongs();
 }
 
-async function searchSongs() {
-    const searchInput = document.getElementById("search-bar");
-    searchInput.addEventListener("input", async (event) => {
-        const searchTerm = event.target.value.toLowerCase();
+let lastVisible = null; // lưu document cuối cùng của trang hiện tại
+const pageSize = 5;     // số bài mỗi trang
+let currentSearchTerm = "";
 
-        // Query Firestore for songs with name matching the search term
-        const querySnapshot = await getDocs(collection(db, "song"));
-        const filteredSongs = [];
-        querySnapshot.forEach((doc) => {
-            const song = { id: doc.id, ...doc.data() };
-            if (song.name && song.name.toLowerCase().includes(searchTerm)) {
-                filteredSongs.push(song);
-            }
-        });
+async function loadSongs(searchTerm, isNextPage = false) {
+    let q;
+    debugger
 
-        const songList = document.getElementById("song-list");
-        songList.innerHTML = "";
+    // Nếu là trang đầu tiên
+    if (!isNextPage) {
+        lastVisible = null;
+        currentSearchTerm = searchTerm.toLowerCase();
+    }
 
-        filteredSongs.forEach((song) => {
-            const songDiv = document.createElement("div");
-            songDiv.classList.add("border");
-            songDiv.innerHTML = `
+    // Query Firestore có điều kiện
+    if (lastVisible) {
+        q = query(
+            collection(db, "song"),
+            orderBy("name"),
+            startAfter(lastVisible),
+            limit(pageSize)
+        );
+    } else {
+        q = query(
+            collection(db, "song"),
+            orderBy("name"),
+            limit(pageSize)
+        );
+    }
+
+    const querySnapshot = await getDocs(q);
+
+    // Lọc theo searchTerm ở client (nếu cần)
+    const filteredSongs = [];
+    querySnapshot.forEach((doc) => {
+        const song = { id: doc.id, ...doc.data() };
+        if (song.name && song.name.toLowerCase().includes(currentSearchTerm)) {
+            filteredSongs.push(song);
+        }
+    });
+
+    // Cập nhật lastVisible cho trang tiếp theo
+    if (!querySnapshot.empty) {
+        lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+    }
+
+    renderSongs(filteredSongs, isNextPage);
+}
+
+function renderSongs(songs, append = false) {
+    const songList = document.getElementById("song-list");
+    if (!append) songList.innerHTML = ""; // clear nếu không append
+
+    songs.forEach((song) => {
+        const songDiv = document.createElement("div");
+        songDiv.classList.add("border");
+        songDiv.innerHTML = `
             <div class="song-item">
                 <h2 class="name">${song.name}</h2>
                 <img class="img" src="${song.img}">
             </div>`;
-            songDiv.addEventListener("click", () => {
-                window.location.href = `../song detail/detail.html?id=${song.id}`;
-            });
-            songList.appendChild(songDiv);
+        songDiv.addEventListener("click", () => {
+            window.location.href = `../song detail/detail.html?id=${song.id}`;
         });
+        songList.appendChild(songDiv);
     });
 }
+
+function searchSongs() {
+    const searchInput = document.getElementById("search-bar");
+    searchInput.addEventListener("input", (event) => {
+        const searchTerm = event.target.value;
+        loadSongs(searchTerm, false); // tải trang đầu tiên khi search
+    });
+
+    // Nút "Tải thêm"
+    document.getElementById("load-more").addEventListener("click", () => {
+        loadSongs(currentSearchTerm, true); // tải tiếp trang mới
+    });
+}
+
 
 function checkAdmin() {
     const adminEmail = "mtokito362@gmail.com";
@@ -191,7 +240,10 @@ if(!current){
     window.location.href = '../login/login.html'
 }
 
+loadSongs("", false);
+
+
 searchSongs();
 addBtn.addEventListener('click', openPopup);
 closeBtn.addEventListener('click', saveSongs);
-displaySongs();
+//displaySongs();
