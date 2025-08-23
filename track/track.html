@@ -45,6 +45,14 @@
                 
             </li>
 
+            <li id="add-artist">
+                <a>
+                    <i class='bx bxs-user-plus'></i>
+                    <span id="add-span" class="nav-item" >Add</span>
+                </a>
+                
+            </li>
+
             <li id="2">
                 <a href="../list/list.html" id="nav2">
                     <i class='bx bxs-playlist' ></i>
@@ -106,6 +114,26 @@
                 </div>
             </div>
 
+            <div class="add-artist">
+                <div class="popUp" id="popupA">
+                    <div class="add-product">
+                        <div class="right-panel">
+                            <img id="add-img" src="../img/black_logo.png" alt="">
+                        </div>
+                        <div class="left-panel">
+                            <a href="../track/track.html" class="back-link">Back to website →</a>
+                            <h2>Add artist now!</h2>
+                            <input type="text" id="artist-name" placeholder="Artist name">
+                            <input type="text" id="artist-img" placeholder="Artist image">
+                            <input type="date" id="artist-bday" placeholder="Artist birth date"> <br>
+                            <!-- <input type="text" id="songs" placeholder="Artist songs"> <br> -->
+                            <button id="save-artist" >Save artist</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
             <div id="music-tracks">
                 <h2 class="trend">TRENDING MVs:</h2>
                 <div id="song-list">
@@ -115,20 +143,7 @@
             </div>
             <div id="singer-list">
                 <h2 class="trend">SINGER LIST:</h2>
-                <div id="singer-list">
-                    <div class="singer-item">
-                        <img src="../img/singer1.jpg" alt="">
-                        <p>Artist 1</p>
-                    </div>
-                    <div class="singer-item">
-                        <img src="../img/singer2.jpg" alt="">
-                        <p>Artist 2</p>
-                    </div>
-                    <div class="singer-item">
-                        <img src="../img/singer3.jpg" alt="">
-                        <p>Artist 3</p>
-                    </div>
-                </div>
+                <div id="artist-list"></div>
 
             </div>
 

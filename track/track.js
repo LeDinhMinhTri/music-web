@@ -27,12 +27,18 @@ let songId = null;
 
 
 let addBtn = document.getElementById('add');
+let addArtist = document.getElementById('add-artist');
 let closeBtn = document.getElementById('save-song');
 let popup = document.getElementById('popup');
+let popupA = document.getElementById('popupA');
 let blur = document.getElementById('blur');
 
 function openPopup() {
     popup.classList.add('open-popup');
+    blur.classList.add('active');
+}
+function openPopupA() {
+    popupA.classList.add('open-popup');
     blur.classList.add('active');
 }
 
@@ -54,6 +60,7 @@ async function saveSongs(){
     window.location.reload();
 }
 
+
 async function getSong() {
     const querySnapshot = await getDocs(collection(db, "song"));
     const songs = [];
@@ -63,6 +70,7 @@ async function getSong() {
     });
     return songs;
 }
+
 
 async function displaySongs(){
     const songList =  document.getElementById("song-list");
@@ -91,6 +99,7 @@ async function displaySongs(){
     })
 }
 
+
 async function deleteSong(songId){
     await deleteDoc(doc(db, "song", songId));
     alert("Song deleted successfully");
@@ -98,7 +107,7 @@ async function deleteSong(songId){
 }
 
 let lastVisible = null; // lưu document cuối cùng của trang hiện tại
-const pageSize = 5;     // số bài mỗi trang
+const pageSize = 4;     // số bài mỗi trang
 let currentSearchTerm = "";
 
 async function loadSongs(searchTerm, isNextPage = false) {
@@ -155,8 +164,11 @@ function renderSongs(songs, append = false) {
         songDiv.classList.add("border");
         songDiv.innerHTML = `
             <div class="song-item">
-                <h2 class="name">${song.name}</h2>
-                <img class="img" src="${song.img}">
+                <h2 class="name" >${song.name}</h2>
+                <img class="img" src="${song.img}" width = "100">
+                <button class="delete-btn" data-id="${song.id}">Delete</button>
+                <i class='bx bx-play'></i>
+                <div class="blur"></div>
             </div>`;
         songDiv.addEventListener("click", () => {
             window.location.href = `../song detail/detail.html?id=${song.id}`;
@@ -240,10 +252,93 @@ if(!current){
     window.location.href = '../login/login.html'
 }
 
+async function saveArtist() {
+    const name = document.getElementById("artist-name").value;
+    const img = document.getElementById("artist-img").value;
+    const bday = document.getElementById("artist-bday").value;
+
+    const docRef = await addDoc(collection(db, "artist"), {
+        name: name,
+        img: img,
+        bday: bday
+    });
+    alert("Artist added successfully with ID: " + docRef.id);
+    popupA.classList.remove('open-popup');
+    blur.classList.remove('active');
+    window.location.reload();
+}
+
+async function getArtists() {
+    const querySnapshot = await getDocs(collection(db, "artist"));
+    const artists = [];
+    querySnapshot.forEach((doc) => {
+        artists.push({ id: doc.id, ...doc.data() });
+    });
+    return artists;
+}
+
+async function displayArtists() {
+    const artistList = document.getElementById("artist-list");
+    if (!artistList) return;
+    artistList.innerHTML = "";
+
+    const artists = await getArtists();
+
+    artists.forEach((artist) => {
+        const artistDiv = document.createElement("div");
+        artistDiv.classList.add("border");
+        artistDiv.innerHTML = `
+            <div class="artist-item">
+                <img class="artist-img" src="${artist.img}" width="100">
+                <h2 class="artist-name">${artist.name}</h2>
+                <button class="delete-artist-btn" data-id="${artist.id}" style="display:none;">Delete</button>
+            </div>`;
+        artistDiv.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('delete-artist-btn')) {
+                window.location.href = `../artist detail/detail.html?id=${artist.id}`;
+            }
+        });
+        artistList.appendChild(artistDiv);
+    });
+
+    document.querySelectorAll('.delete-artist-btn').forEach((button) => {
+        button.addEventListener('click', async (event) => {
+            event.stopPropagation();
+            const artistId = event.target.getAttribute('data-id');
+            await deleteArtist(artistId);
+        });
+    });
+    checkAdminArtist();
+}
+
+async function deleteArtist(artistId) {
+    await deleteDoc(doc(db, "artist", artistId));
+    alert("Artist deleted successfully");
+    displayArtists();
+}
+
+function checkAdminArtist() {
+    const adminEmail = "mtokito362@gmail.com";
+    let current = localStorage.getItem('currentEmail');
+    document.querySelectorAll('.delete-artist-btn').forEach(btn => {
+        btn.style.display = (current === adminEmail) ? "inline-block" : "none";
+    });
+}
+
+let saveArtistBtn = document.getElementById('save-artist');
+if (saveArtistBtn) {
+    saveArtistBtn.addEventListener('click', saveArtist);
+}
+
+if (document.getElementById("artist-list")) {
+    displayArtists();
+}
+
 loadSongs("", false);
 
 
 searchSongs();
 addBtn.addEventListener('click', openPopup);
+addArtist.addEventListener('click', openPopupA);
 closeBtn.addEventListener('click', saveSongs);
 //displaySongs();
