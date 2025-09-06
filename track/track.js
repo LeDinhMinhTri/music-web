@@ -295,7 +295,7 @@ async function displayArtists() {
             </div>`;
         artistDiv.addEventListener('click', (e) => {
             if (!e.target.classList.contains('delete-artist-btn')) {
-                window.location.href = `../artist detail/detail.html?id=${artist.id}`;
+                window.location.href = `../artist detail/artist_detail.html?id=${artist.id}`;
             }
         });
         artistList.appendChild(artistDiv);

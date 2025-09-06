@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmoniq</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./artist_detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Ewert&family=Grenze+Gotisch:wght@100..900&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top">
+            <a href="../home/home.html">
+                <div class="logo">
+                    <img id="small-logo" src="../img/logo.png" alt="">
+                </div>
+            </a>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        
+        <ul id="nav">
+                
+            <li id="0">
+                <a href="../home/home.html" id="nav0">
+                    <i class='bx bxs-home-heart' ></i>
+                    <span class="nav-item" >Home</span>
+                </a>
+            </li>
+
+            <li id="1">
+                <a href="../track/track.html" id="nav1">
+                    <i class='bx bxs-music' style="color: #021526;"></i>
+                    <span class="nav-item" style="color: #021526;">Tracks</span>
+                </a>
+            </li>
+
+
+            <li id="2">
+                <a href="../list/list.html" id="nav2">
+                    <i class='bx bxs-playlist' ></i>
+                    <span class="nav-item">List</span>
+                </a>
+            </li>
+
+            <li id="3">
+                <a href="../signup/signup.html" id="nav3">
+                    <i class='bx bx-user-plus'></i>
+                    <span class="nav-item">Join</span>
+                </a>
+            </li>
+
+            <li id="4">
+                <a href="../login/login.html" id="nav4"> 
+                    <i class='bx bxs-user-check'></i>
+                    <span class="nav-item">LogIn</span>
+                </a>
+            </li>
+
+            <li id="5">
+                <a id="nav4"> 
+                    <i class='bx bxs-log-out'></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <header>
+                <div class="search">
+                    <i class='bx bx-search'></i>
+                    <input id="search-bar" type="text" placeholder="What other Artists do you want to explore?">
+                </div>
+            </header>
+
+        <!-- Artist Hero Section -->
+        <section class="artist-hero">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                
+                <h1 class="artist-name"></h1>
+                
+                
+                <div class="hero-controls">
+                    <button class="play-btn" id="main-play-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="follow-btn" id="follow-btn">Follow</button>
+                    
+                    <button class="more-btn" id="more-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="19" cy="12" r="1"/>
+                            <circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Songs Section -->
+        <section class="popular-songs">
+            <h2 class="section-title">Popular</h2>
+            
+            <div class="songs-list">
+                <div class="song-item" id="1">
+                    <div class="track-number">
+                        <span class="number">1</span>
+                        <button class="song-play-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- <div class="song-info">
+                        <img src="src/assets/song1-cover.jpg"  class="song-cover">
+                        <div class="song-details">
+                            <h3 class="song-title"></h3>
+                        </div>
+                    </div> -->
+                    
+                    
+                    <button class="song-more-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="19" cy="12" r="1"/>
+                            <circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                    
+                </div>
+
+                <div class="song-item" id="2">
+                    <div class="track-number">
+                        <span class="number">2</span>
+                        <button class="song-play-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- <div class="song-info">
+                        <img src="src/assets/song2-cover.jpg" alt="Âm Thầm Bên Em" class="song-cover">
+                        <div class="song-details">
+                            <h3 class="song-title">Âm Thầm Bên Em</h3>
+                        </div>
+                    </div> -->
+                    
+                    
+                    <button class="song-more-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="19" cy="12" r="1"/>
+                            <circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                    
+                </div>
+
+                <div class="song-item" id="3">
+                    <div class="track-number">
+                        <span class="number">3</span>
+                        <button class="song-play-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- <div class="song-info">
+                        <img src="src/assets/song3-cover.jpg"  class="song-cover">
+                        <div class="song-details">
+                            <h3 class="song-title"></h3>
+                        </div>
+                    </div> -->
+                    
+                    
+                    <button class="song-more-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="19" cy="12" r="1"/>
+                            <circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                    
+                </div>
+
+                <div class="song-item" id="4">
+                    <div class="track-number">
+                        <span class="number">4</span>
+                        <button class="song-play-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- <div class="song-info">
+                        <img src="src/assets/song4-cover.jpg" alt="Nơi Này Có Anh" class="song-cover">
+                        <div class="song-details">
+                            <h3 class="song-title">Nơi Này Có Anh</h3>
+                        </div>
+                    </div> -->
+                    
+                    
+                    <button class="song-more-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="19" cy="12" r="1"/>
+                            <circle cx="5" cy="12" r="1"/>
+                        </svg>
+                    </button>
+                    
+                </div>
+            </div>
+        </section>
+           
+        </div>
+    </div>
+    <script type="module" src="./artist_detail.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>

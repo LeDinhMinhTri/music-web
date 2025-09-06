@@ -48,18 +48,9 @@ async function login(e){
         alert(`Lỗi đăng nhập: ${error.message}`);
       }
     };
-    // let users = JSON.parse(localStorage.getItem("users"))
-    // for (let i = 0; i<users.length; i++){
-    //     if(username === users[i].username && password === users[i].password){
-    //         alert("Login successfully")
-    //         window.location.href = '../home/home.html'
-    //         localStorage.setItem('current',username)
-    //         return;
-    //     }
-    // }
-    // alert('Wrong username or password')
 
 form.addEventListener('submit',login)
 
 
-    
+// fix to check if emails are already registered
+// fix to save current email in local storage
