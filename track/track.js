@@ -193,22 +193,26 @@ function searchSongs() {
 
 function checkAdmin() {
     const adminEmail = "mtokito362@gmail.com";
-    let current = localStorage.getItem('currentEmail');
+    let currentEmail = localStorage.getItem('currentEmail');
     let addBtn = document.getElementById('add');
     let addBtnSpan = document.getElementById('add-span');
-    // Show/hide add button and its span
-    if (current === adminEmail) {
-        addBtn.style.display = "block";
-        if (addBtnSpan) addBtnSpan.style.display = "inline";
-        document.querySelectorAll('.delete-btn').forEach(btn => {
+    // Defensive: check if addBtn exists
+    if (addBtn) {
+        if (currentEmail === adminEmail) {
+            addBtn.style.display = "block";
+            if (addBtnSpan) addBtnSpan.style.display = "inline";
+            document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.style.display = "inline-block";
-        });
-    } else {
-        addBtn.style.display = "none";
-        if (addBtnSpan) addBtnSpan.style.display = "none";
-        document.querySelectorAll('.delete-btn').forEach(btn => {
+            });
+            if (addArtist) addArtist.style.display = "block";
+        } else {
+            addBtn.style.display = "none";
+            if (addBtnSpan) addBtnSpan.style.display = "none";
+            document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.style.display = "none";
-        });
+            });
+            if (addArtist) addArtist.style.display = "none";
+        }
     }
 }
 
@@ -244,12 +248,11 @@ displaySongs = async function() {
             await deleteSong(songId);
         })
     });
-    checkAdmin();
-};
-let current = localStorage.getItem('current');
-if(!current){
-    alert('Please log in')
-    window.location.href = '../login/login.html'
+}
+let currentEmail = localStorage.getItem('currentEmail');
+if(!currentEmail){
+    alert('Please log in');
+    window.location.href = '../login/login.html';
 }
 
 async function saveArtist() {
@@ -342,3 +345,4 @@ addBtn.addEventListener('click', openPopup);
 addArtist.addEventListener('click', openPopupA);
 closeBtn.addEventListener('click', saveSongs);
 //displaySongs();
+checkAdmin();

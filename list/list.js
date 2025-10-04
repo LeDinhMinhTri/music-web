@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+import { query, orderBy, limit, startAfter} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -121,3 +122,61 @@ list.addEventListener('click', async (event) => {
         }
     }
 });
+let pageSize = 5;
+let lastVisible = null;
+
+async function loadFavoriteSongs(initial = false) {
+    try {
+        let favRef = collection(db, "fav");
+        let queryRef;
+        if (initial || !lastVisible) {
+            queryRef = firebase.firestore().collection("fav")
+                .where("user", "==", current)
+                .orderBy("name")
+                .limit(pageSize);
+        } else {
+            queryRef = firebase.firestore().collection("fav")
+                .where("user", "==", current)
+                .orderBy("name")
+                .startAfter(lastVisible)
+                .limit(pageSize);
+        }
+
+        const querySnapshot = await queryRef.get();
+        if (initial) list.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+            const songData = doc.data();
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <div class="song-item">
+                    <img id="song-icon" src="${songData.img}" alt="${songData.name}" width="100">
+                    <h2 id="song-name">${songData.name}</h2>
+                    <button class="detail-btn"> Detail</button>
+                    <button class="delete-btn"> Delete </button>
+                </div>`;
+            listItem.classList.add('song-item');
+            list.appendChild(listItem);
+        });
+        lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+        if (querySnapshot.size < pageSize) {
+            showMoreBtn.style.display = 'none';
+        } else {
+            showMoreBtn.style.display = 'block';
+        }
+    } catch (error) {
+        console.error("Error fetching songs: ", error);
+    }
+}
+
+const showMoreBtn = document.createElement('button');
+showMoreBtn.textContent = 'Show More';
+showMoreBtn.style.display = 'none';
+showMoreBtn.className = 'show-more-btn';
+list.parentNode.appendChild(showMoreBtn);
+
+showMoreBtn.addEventListener('click', () => {
+    loadFavoriteSongs(false);
+});
+
+// Initial load
+loadFavoriteSongs(true);
